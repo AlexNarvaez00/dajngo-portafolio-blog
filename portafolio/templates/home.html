@@ -1,0 +1,60 @@
+{% extends 'root.html' %} {% block content%}
+<div class="container">
+  <section class="row bg-black my-5">
+    <div class="col-md-4">
+      <img
+        src="https://images.unsplash.com/photo-1522307837370-cc113a36b784?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        alt=""
+        srcset=""
+        class="img-rounded"
+      />
+    </div>
+    <div class="col-md-8 text-light my-auto">
+      <h1>Violette Evergarden</h1>
+      <p class="text-secondary">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos ducimus
+        vero assumenda dolorum qui beatae nihil, porro molestiae voluptas quam
+        officiis incidunt asperiores reprehenderit nostrum? Vel quia illo,
+        officia beatae dolore animi fuga eveniet ipsa facere delectus optio
+        deleniti eos labore eum dolores explicabo unde consequatur maxime
+      </p>
+      <a href="#" class="btn btn-outline-primary px-5 rounded-0"
+        >Descargar CV
+      </a>
+    </div>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="text-light text-center">Lista de proyectos.</h2>
+    <p class="text-light text-center">Lista de todos los proyecto realizados</p>
+    <div class="row justify-content-center">
+      {% for projectItem in lisProjects %}
+      <div class="col-md-4">
+        <div class="card bg-black p-4">
+          <div class="card-body justify-content-center">
+            <img
+              src="{{ projectItem.img.url }}"
+              class="img-fluid rounded-start img-rounded-square"
+              alt="..."
+            />
+            <h3 class="card-title text-light text-center">
+                {{ projectItem.title }}
+              </h3>
+            <p class="text-light text-center">
+              {{projectItem.description|truncatechars:40}}
+            </p>
+            <a
+              href="{{projectItem.url}}"
+              class="link-light text-light text-center"
+              target="_blank"
+            >
+              visitar
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}

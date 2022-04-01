@@ -1,0 +1,17 @@
+<h1>Home para el blog</h1>
+<p>Lista de publicaciones</p>
+<ul>
+    {% for portItem in listPost %}
+        <li>
+            <h2>{{portItem.title}}</h2>
+        </li> 
+        <li>{{portItem.descripcion|safe|truncatechars:100}}</li>
+        <li>
+            <img src="{{portItem.image.url}}" alt="">
+        </li>
+        <li>{{portItem.fecha}}</li>
+        <li>
+            <a href="{% url 'blog:postByID' portItem.id %}">Ver publicacion entera</a>
+        </li>
+    {% endfor %}
+</ul>
